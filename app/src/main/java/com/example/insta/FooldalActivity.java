@@ -7,6 +7,8 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlarmManager;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -61,6 +63,9 @@ public class FooldalActivity extends AppCompatActivity {
     private SharedPreferences preferences;
 
     private boolean viewRow = true;
+    private NotificationHelper mNotificationHelper;
+    private AlarmManager mAlarmManager;
+    private JobScheduler mJobScheduler;
 
 
     @Override
