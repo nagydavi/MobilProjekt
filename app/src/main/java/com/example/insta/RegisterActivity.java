@@ -1,5 +1,6 @@
 package com.example.insta;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,12 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String LOG_TAG = RegisterActivity.class.getName();
@@ -27,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     RadioGroup radioGroup;
 
     private SharedPreferences preferences;
+    private FirebaseAuth myAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +71,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        myAuth = FirebaseAuth.getInstance();
+
         Log.i(LOG_TAG, "onCreate");
     }
 
@@ -86,6 +96,18 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
         Log.i(LOG_TAG, "Regisztrált: " + userName + ", e-mail: " + email);
         // TODO: A regisztrációs funkcionalitást meg kellene valósítani egyszer.
+        myAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+                    Log.d(LOG_TAG, "User created successfully");
+                    startScrolling();;
+                } else {
+                    Log.d(LOG_TAG, "User was't created successfully:", task.getException());
+                    Toast.makeText(RegisterActivity.this, "User was't created successfully:", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         startScrolling();
     }
 
@@ -95,7 +117,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     private void startScrolling(/*registerd user data*/){
         Intent intent = new Intent(this,FooldalActivity.class);
-        intent.putExtra("SECRET_KEY",SECRET_KEY);
+        //intent.putExtra("SECRET_KEY",SECRET_KEY);
         startActivity(intent);
     }
 

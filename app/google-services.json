@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "450519853899",
+    "project_id": "fakeinsta-2716a",
+    "storage_bucket": "fakeinsta-2716a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450519853899:android:1c34a74f403e0ceea196ce",
+        "android_client_info": {
+          "package_name": "com.example.insta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "450519853899-iu4f8l59570kmna4aosb1grtd6luoadn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.insta",
+            "certificate_hash": "ac9a5ce52aafbec4cf50dc806e240f3b9544097a"
+          }
+        },
+        {
+          "client_id": "450519853899-i2l2ihcrmir7k07r8h9c3095mte448hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjNBnRGQDkSFa7PHl5DzZsyw12xHEYBXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "450519853899-i2l2ihcrmir7k07r8h9c3095mte448hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
