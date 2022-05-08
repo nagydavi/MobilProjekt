@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FakeInsta</string>
+    <string name="registration">Regisztráció</string>
+    <string name="user_name">Username</string>
+    <string name="email_address">E-mail</string>
+    <string name="password">Password</string>
+    <string name="password_again">Jelszó megerősítése</string>
+    <string name="cancel">Cancel</string>
+    <string name="ferfi">Ferfi</string>
+    <string name="no">No</string>
+    <string-array name="munka_tipus">
+        <item>Dolgozo</item>
+        <item>Diak</item>
+        <item>Celeb</item>
+        <item>Influenszer</item>
+
+    </string-array>
+</resources>
